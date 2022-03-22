@@ -1,38 +1,202 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: #ffff;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #1F1F1F;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
   display: flex;
-  flex-direction: column;
+}
+.sidebar {
+  background-color: #1a1a1a;
+  border-right: 1px solid #2e2e2e;
+  position: fixed;
+  width: 257px;
+  height: 100%;
+}
+.page-body {
+  background-color: #1F1F1F;
+}
+.logo-wrapper {
+  margin:  51px 0 0 42px;;
+}
+.logo {
+  font-size: 32px;
+  line-height: 48px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.dot {
+  color: #FF7C5D;
+  font-size: 60px;
+}
+.pro-wrapper {
+  position: absolute;
+  top: 60px;
+  left: 126px;
+  font-size: 14px;
+  line-height: 19px;
+}
+.btn-all-tasks-wrapper {
+  background-color: #FF7C5D;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 55px 25px 0 0;
+  border-radius: 0px 8px 8px 0px;
+}
+.btn-all-tasks {
+  padding: 13px;
+}
+.ul-wrapper {
+  margin: 86px 46px 0 35px;
+}
+ul {
+  list-style-type: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.all-tasks {
+  list-style: circle;
+  color: #808191;
+}
+.basket {
+  list-style: circle;
+  margin: 35px 0 35px 0;
+  color: #808191;
+}
+.settings {
+  list-style: circle;
+  color: #808191;
+}
+.btn-new-task-wrapper {
+  background-color: #FF7C5D;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 90px 45px 0 44px;
+  border-radius: 88px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-new-task {
+  padding: 13px;
+}
+
+/* page */
+.head-wrapper {
+  display: flex;
+  margin: 83px 70px 0 307px;
+  align-items: flex-end;
+}
+.head {
+  margin-right: 230px; 
+}
+.head-text {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+/* items */
+.visibility {
+  display: none;
+}
+.items-wrapper {
+  justify-content:flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 35px 0 0 307px;
+}
+.item-wrapper {
+  background-color: #242731;
+  border-radius: 24px;
+  width: 330px;
+  margin: 0 40px 42px 0;
+}
+
+.item {
+  padding: 25px;
+  cursor: pointer;
+}
+.head-task {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
+.text-task {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #808191;
+}
+.line-through {
+  text-decoration: line-through;
+}
+
+.changes-wrapper {
+  display: flex;
+  margin-top: 26px;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.date-task {
+  font-size: 12px;
+  line-height: 100%;  
+  color: rgba(128, 129, 145, 0.5)
+}
+.changes {
+  color: #808191;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+.changes-dote-wratter {
+  display: block;
+}
+.changes-item-wrapper {
+  position: absolute;
+  background-color: #414657;
+  border-radius: 10px;
+  display: none;
+}
+.changes-dote-wratter:hover .changes-item-wrapper {
+  display: block;
+}
+.changes-item {
+  padding: 10px;
+  font-size: 14px;
+  line-height: 35px;
+  color: #808191;
+  cursor: pointer;
+}
+.ch-i:hover {
+  background-color: #6a728a;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* task-input */
+.head-task-inpt {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  background-color:  #242731;
+  outline: none;
+  max-width: 100%;
+  min-width: 100%;
+  overflow: hidden;
+}
+.text-task-inpt {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #808191;
+  background-color:  #242731;
+  outline: none;
+  max-width: 100%;
+  min-width: 100%;
+  overflow: hidden;
 }
