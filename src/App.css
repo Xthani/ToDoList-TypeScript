@@ -286,4 +286,18 @@ ul {
     border-radius: 24px;
     margin: 10px auto;
   }
+
+  .changes-item-wrapper {
+    right: -23px;
+    bottom: -46px;
+  }
+
+  .changes-dote-wratter {
+    position: relative;
+  }
+
+  .changes-item {
+    font-size: 20px;
+    line-height: 45px;
+  }
 }
