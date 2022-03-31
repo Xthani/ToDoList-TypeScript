@@ -238,10 +238,15 @@ ul {
 
 /* адаптив */
 @media(max-width:850px) {
+  .page-body {
+    margin: 0 auto;
+  }
+
   .sidebar {
     width: 100%;
-    height: 10%;
+    height: 12%;
     display: flex;
+    border-bottom: 1px solid #2e2e2e;
   }
 
   .logo-wrapper {
@@ -260,7 +265,7 @@ ul {
   }
 
   .head-wrapper {
-    margin: 33% 0 0 0;
+    margin: 40% 0 0 0;
   }
 
   .head {
@@ -272,13 +277,13 @@ ul {
   }
 
   .items-wrapper {
-    margin: 35px auto;
+    margin: 0 auto;
+    display: inline-block;
   }
 
   .item-wrapper {
     background-color: #242731;
     border-radius: 24px;
-    width: 100%;
-    margin: 5px 5px;
+    margin: 10px auto;
   }
 }
