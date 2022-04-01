@@ -13,7 +13,8 @@ const Header = () => {
                 visibilityNewItem: true, // отобразить новый item (да)
                 edit: true, // отобразить input ввода а не текст (да) - false - true
                 editing: false, // отобразить форму для редактирования (нет) - true 
-                completed: false // задание выполнено (нет)
+                completed: false, // задание выполнено (нет)
+                visible: false // форма редактирования не активна
             }))
         }
     }

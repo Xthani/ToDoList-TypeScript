@@ -10,6 +10,7 @@ const Items = ({ item }: { item: TTodo }) => {
     const dispatch = useDispatch();
     const [userText, setUserText] = useState('');
     const [userHead, setUserHead] = useState('');
+
     // Получение значение value Text
     const handleChangeText = ({ currentTarget: { value } }: React.ChangeEvent<HTMLTextAreaElement>) => {
         setUserText(value)

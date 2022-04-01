@@ -195,6 +195,13 @@ ul {
   display: none;
 }
 
+.changes-item-wrapper-visible {
+  position: absolute;
+  background-color: #414657;
+  border-radius: 10px;
+  display: block;
+}
+
 .changes-dote-wratter:hover .changes-item-wrapper {
   display: block;
 }
@@ -209,6 +216,10 @@ ul {
 
 .ch-i:hover {
   background-color: #6a728a;
+}
+
+.ch-i-edit {
+  display: none;
 }
 
 
@@ -287,7 +298,7 @@ ul {
     margin: 10px auto;
   }
 
-  .changes-item-wrapper {
+  .changes-item-wrapper-visible {
     right: -23px;
     bottom: -46px;
   }
@@ -299,5 +310,9 @@ ul {
   .changes-item {
     font-size: 20px;
     line-height: 45px;
+  }
+
+  .changes-dote-wratter:hover .changes-item-wrapper {
+    display: none;
   }
 }

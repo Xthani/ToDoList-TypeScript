@@ -8,20 +8,21 @@ const ChangesItem = ({ item }: { item: TTodo }) => {
     const dispatch = useDispatch();
 
     // Редактирование taska
-    const EditTask = (item: TTodo) => {
+    const EditTask = (item: TTodo, data: TTodo[]) => {
         dispatch(saveEditToDo(item))
         dispatch(editingToDo(item.id, data))
     }
     // Удаление taska
-    const DeleteTask = (item: TTodo) => dispatch(deledeToDo(data, item))
+    const DeleteTask = (item: TTodo, data: TTodo[]) => dispatch(deledeToDo(data, item))
     // Выполнение taska
-    const CompletTask = (item: TTodo) => dispatch(complet(item, data))
+    const CompletTask = (item: number, data: TTodo[]) => dispatch(complet(item, data))
     return (
-        <div className='changes-item-wrapper'>
+        <div
+            className={!!item.visible ? 'changes-item-wrapper-visible' : 'changes-item-wrapper'} >
             <div className="changes-item ">
-                <p className='ch-i' onClick={() => EditTask(item)}>Редактировать</p>
-                <p className='ch-i' onClick={() => DeleteTask(item)}>Удалить</p>
-                <p className='ch-i' onClick={() => CompletTask(item)}>Выполнено</p>
+                <p className={!!item.completed ? 'ch-i-edit' : 'ch-i'} onClick={() => EditTask(item, data)}>Редактировать</p>
+                <p className='ch-i' onClick={() => DeleteTask(item, data)}>Удалить</p>
+                <p className='ch-i' onClick={() => CompletTask(item.id, data)}>Выполнено</p>
             </div>
         </div>
     )

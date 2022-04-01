@@ -5,7 +5,6 @@ import Items from "./Items/Items";
 
 const ToDoItems = () => {
     const data = useSelector((state: any) => state.todos.todosData)
-
     return (
         <div className="items-wrapper items-bg">
             <>
