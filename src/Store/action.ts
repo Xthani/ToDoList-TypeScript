@@ -56,11 +56,11 @@ export const ChangeToDo = (text: string, head: string, data: TTodo[], toDoItem: 
     }
 )
 // Изменяет поле completed (выполнено задание или нет)
-export const complet = (id: number, data: TTodo[]) => (
+export const complet = (idTask: number, data: TTodo[]) => (
     {
         type: EActionType.COMPLET,
         payload: data.map((item: TTodo) =>
-            item.id == id ? {
+            item.id == idTask ? {
                 ...item,
                 completed: !item.completed,
                 visible: !item.visible
@@ -68,10 +68,10 @@ export const complet = (id: number, data: TTodo[]) => (
     }
 )
 // Отображение формы редактирования 
-export const changesVisible = (id: number, data: TTodo[]) => (
+export const changesVisible = (idTask: number, data: TTodo[]) => (
     {
         type: EActionType.VISIBLE_EDIT_FORM,
         payload: data.map((item: TTodo) =>
-            item.id === id ? { ...item, visible: !item.visible } : item)
+            item.id == idTask ? { ...item, visible: !item.visible } : { ...item, visible: false })
     }
 )

@@ -184,6 +184,21 @@ ul {
   position: relative;
 }
 
+.changes-dote {
+  color: #808191;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+.changes-mobile {
+  color: #808191;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+
 .changes-dote-wratter {
   display: block;
 }
@@ -313,6 +328,14 @@ ul {
   }
 
   .changes-dote-wratter:hover .changes-item-wrapper {
+    display: none;
+  }
+
+  .changes-mobile {
+    display: block;
+  }
+
+  .changes-dote {
     display: none;
   }
 }

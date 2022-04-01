@@ -10,7 +10,7 @@ export enum EActionType {
     EDITING = 'EDITING',
     COMPLET = 'COMPLET',
     CHANGE_TODO = 'CHANGE_TODO',
-    VISIBLE_EDIT_FORM = 'VISIBLE_EDIT_FORM'
+    VISIBLE_EDIT_FORM = 'VISIBLE_EDIT_FORM',
 };
 
 export interface IInitState {

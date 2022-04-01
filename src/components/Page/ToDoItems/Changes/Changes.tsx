@@ -7,10 +7,13 @@ import ChangesItem from "../ChangesItem/ChangesItem";
 const Changes = ({ item }: { item: TTodo }) => {
     const data = useSelector((state: any) => state.todos.todosData)
     const dispatch = useDispatch();
-    const changes = (item: number, data: TTodo[]) => dispatch(changesVisible(item, data))
+    const changes = (id: number, data: TTodo[]) => {
+        dispatch(changesVisible(id, data))
+    }
     return (
         <div className="changes-dote-wratter">
-            <p onClick={() => changes(item.id, data)} className='changes' >•••</p>
+            <p className='changes-dote' >•••</p>
+            <p onClick={() => changes(item.id, data)} className='changes-mobile' >•••</p>
             <ChangesItem item={item} />
         </div>
     )
