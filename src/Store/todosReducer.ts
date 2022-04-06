@@ -2,7 +2,8 @@ import { EActionType, IInitState, TAction } from './types';
 
 let INIT_STATE: IInitState = {
     todosData: [],
-    editedToDo: {}
+    editedToDo: {},
+    item: {}
 }
 
 export const todosReducer = (state: IInitState = INIT_STATE, action: TAction) => {
@@ -18,6 +19,8 @@ export const todosReducer = (state: IInitState = INIT_STATE, action: TAction) =>
             return { ...state, todosData: action.payload }
         case EActionType.SAVE_EDIT_TODO:
             return { ...state, editedToDo: action.payload }
+        case EActionType.SAVE_TD:
+            return { ...state, item: action.payload }
         default:
             return state;
     }

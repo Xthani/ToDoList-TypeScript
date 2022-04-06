@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { complet, deledeToDo, editingToDo, saveEditToDo } from "../../../../Store/action";
+import { changesVisible, complet, deledeToDo, editingToDo, saveEditToDo } from "../../../../Store/action";
 import { RootState, TTodo } from "../../../../Store/types";
 
 const ChangesItem = ({ item }: { item: TTodo }) => {
@@ -16,6 +16,24 @@ const ChangesItem = ({ item }: { item: TTodo }) => {
     const DeleteTask = (item: TTodo, data: TTodo[]) => dispatch(deledeToDo(data, item))
     // Выполнение taska
     const CompletTask = (item: number, data: TTodo[]) => dispatch(complet(item, data))
+
+    const handleClick = () => {
+        console.log("handleClick");
+        dispatch(changesVisible(item.id, data))
+        window.removeEventListener('click', handleClick)
+    }
+
+    useEffect(() => {
+        console.log("visible", item.visible);
+        if (item.visible) {
+            console.log("addEventListener");
+            window.addEventListener('click', handleClick)
+        } else {
+            console.log("removeEventListener");
+            window.removeEventListener('click', handleClick)
+        }
+    }, [item.visible]);
+
     return (
         <div
             className={!!item.visible ? 'changes-item-wrapper-visible' : 'changes-item-wrapper'} >

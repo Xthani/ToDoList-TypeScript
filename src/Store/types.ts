@@ -1,6 +1,3 @@
-import { todosReducer } from './todosReducer';
-import { rootReducer } from "./rootReducer"
-
 export enum EActionType {
     ADD_TODO = 'ADD_TODO',
     SAVE_TODO = 'SAVE_TODO',
@@ -11,11 +8,13 @@ export enum EActionType {
     COMPLET = 'COMPLET',
     CHANGE_TODO = 'CHANGE_TODO',
     VISIBLE_EDIT_FORM = 'VISIBLE_EDIT_FORM',
+    SAVE_TD = 'SAVE_TD'
 };
 
 export interface IInitState {
     todosData: TTodo[]
     editedToDo: {}
+    item: TTodo | {}
 }
 
 export type TTodo = {

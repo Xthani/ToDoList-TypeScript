@@ -75,3 +75,4 @@ export const changesVisible = (idTask: number, data: TTodo[]) => (
             item.id == idTask ? { ...item, visible: !item.visible } : { ...item, visible: false })
     }
 )
+export const saveId = (item: TTodo) => ({ type: EActionType.SAVE_TD, payload: item })

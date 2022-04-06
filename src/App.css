@@ -339,3 +339,11 @@ ul {
     display: none;
   }
 }
+
+.blocks {
+  position: absolute;
+  background-color: #a31a1a;
+  width: 100%;
+  height: 100%;
+  opacity: .3;
+}
