@@ -37,7 +37,7 @@ export const editingToDo = (idTask: number, data: TTodo[]) => (
                 ...item,
                 editing: !item.editing,
                 edit: !item.edit,
-                visible: !item.visible
+                visible: false
             } : item)
     }
 )
@@ -63,7 +63,7 @@ export const complet = (idTask: number, data: TTodo[]) => (
             item.id == idTask ? {
                 ...item,
                 completed: !item.completed,
-                visible: !item.visible
+                visible: false
             } : item)
     }
 )

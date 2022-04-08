@@ -6,11 +6,11 @@ import ChangesItem from "../ChangesItem/ChangesItem";
 
 const Changes = ({ item }: { item: TTodo }) => {
     const data = useSelector((state: any) => state.todos.todosData)
-    const [state, setState] = useState(1);
     const dispatch = useDispatch();
     const changes = (item: TTodo, data: TTodo[]) => {
-        dispatch(changesVisible(item.id, data))
-        dispatch(saveId(item))
+        dispatch(changesVisible(item.id, data));
+        dispatch(saveId(item));
+
     }
     return (
         <div className="changes-dote-wratter">
