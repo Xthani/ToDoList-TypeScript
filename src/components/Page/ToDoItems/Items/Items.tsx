@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../../../hooks";
 import { saveToDo, deledeToDo } from "../../../../Store/action";
-import { RootState, TTodo } from "../../../../Store/types";
+import { TTodo } from "../../../../Store/types";
 import Changes from "../Changes/Changes";
 import ItemsEdit from "./ItemsEdit";
 
 const Items = ({ item }: { item: TTodo }) => {
-    const data = useSelector((state: RootState) => state.todos.todosData)
+    const { todosData } = useAppSelector(state => state.todos);
     const dispatch = useDispatch();
     const [userText, setUserText] = useState('');
     const [userHead, setUserHead] = useState('');
@@ -57,7 +58,7 @@ const Items = ({ item }: { item: TTodo }) => {
                             item.edit ?
                                 <p
                                     className='changes'
-                                    onClick={() => handleSave(data, item)}>
+                                    onClick={() => handleSave(todosData, item)}>
                                     {(!!userHead && !!userText) ? "сохранить" : "отмена"}</p> :
                                 <Changes item={item} />
                         }

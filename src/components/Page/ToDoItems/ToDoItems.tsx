@@ -1,14 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../../hooks";
 import { TTodo } from "../../../Store/types";
 import Items from "./Items/Items";
 
 const ToDoItems = () => {
-    const data = useSelector((state: any) => state.todos.todosData)
+    const { todosData } = useAppSelector((state: any) => state.todos);
     return (
         <div className="items-wrapper items-bg">
             <>
-                {!!data.length && data.map((item: TTodo) =>
+                {!!todosData.length && todosData.map((item: TTodo) =>
                     <div
                         key={item.id}
                         className={item.visibilityNewItem ? "item-wrapper" : "visibility"}

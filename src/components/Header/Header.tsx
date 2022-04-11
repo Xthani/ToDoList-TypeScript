@@ -1,10 +1,10 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { addToDo } from "../../Store/action";
 
 const Header = () => {
     const dispatch = useDispatch();
     const handleAdd = () => {
+        console.log('handleAdd');
         if (true) {
             dispatch(addToDo({
                 id: Date.now(),
@@ -27,16 +27,6 @@ const Header = () => {
                     <a className='pro' href="#">PRO</a>
                 </div>
             </div>
-            {/* <div className="btn-all-tasks-wrapper">
-                <p className='btn-all-tasks'>All tasks</p>
-            </div> */}
-            {/* <div className='ul-wrapper'>
-                <ul>
-                    <li className='all-tasks'>All tasks</li>
-                    <li className='basket'>Basket</li>
-                    <li className='settings'>Settings</li>
-                </ul>
-            </div> */}
             <div
                 className="btn-new-task-wrapper"
                 onClick={handleAdd}>

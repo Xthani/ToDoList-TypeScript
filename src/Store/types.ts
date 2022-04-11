@@ -33,4 +33,3 @@ export type TAction = {
     payload: TTodo[] | TTodo
 }
 
-export type RootState = any

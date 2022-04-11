@@ -1,7 +1,4 @@
-import { useSelector } from 'react-redux';
 import { EActionType, TTodo } from './types';
-
-// const data = useSelector((state: TTodo | []) => state.todos.todosData)
 
 // добавляет объект newToDo в пустой массив
 export const addToDo = (newToDo: TTodo) => ({ type: EActionType.ADD_TODO, payload: newToDo });

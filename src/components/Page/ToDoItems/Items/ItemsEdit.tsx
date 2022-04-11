@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../../../hooks";
 import { deledeToDo, ChangeToDo } from "../../../../Store/action";
-import { RootState, TTodo } from "../../../../Store/types";
+import { TTodo } from "../../../../Store/types";
 import Changes from "../Changes/Changes";
 
 const ItemsEdit = ({ item }: { item: TTodo }) => {
-    const data = useSelector((state: RootState) => state.todos.todosData)
-    const edited = useSelector((state: RootState) => state.todos.editedToDo)
+    const { todosData } = useAppSelector(state => state.todos);
+    const { editedToDo } = useAppSelector((state: any) => state.todos);
     const dispatch = useDispatch();
-    const [userEditText, setUserEditText] = useState(edited.text)
-    const [userEditHead, setUserEditHead] = useState(edited.head)
+    const [userEditText, setUserEditText] = useState(editedToDo.text)
+    const [userEditHead, setUserEditHead] = useState(editedToDo.head)
     // Получение редактируемого значения value Text
     const editChangeText = ({ currentTarget: { value } }: React.ChangeEvent<HTMLTextAreaElement>) => {
         setUserEditText(value)
@@ -52,7 +53,7 @@ const ItemsEdit = ({ item }: { item: TTodo }) => {
                     item.edit ?
                         <p
                             className='changes'
-                            onClick={() => editedSave(data, item)}>
+                            onClick={() => editedSave(todosData, item)}>
                             {(!!userEditHead && !!userEditText) ? "сохранить" : "отмена"}</p> :
                         <Changes item={item} />
                 }

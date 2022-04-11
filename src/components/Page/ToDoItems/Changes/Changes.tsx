@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useAppSelector } from "../../../../hooks";
 import { changesVisible, saveId } from "../../../../Store/action";
 import { TTodo } from "../../../../Store/types";
 import ChangesItem from "../ChangesItem/ChangesItem";
 
 const Changes = ({ item }: { item: TTodo }) => {
-    const data = useSelector((state: any) => state.todos.todosData)
+    const { todosData } = useAppSelector(state => state.todos);
     const dispatch = useDispatch();
     const changes = (item: TTodo, data: TTodo[]) => {
+        console.log('changes')
         dispatch(changesVisible(item.id, data));
         dispatch(saveId(item));
 
@@ -15,7 +16,7 @@ const Changes = ({ item }: { item: TTodo }) => {
     return (
         <div className="changes-dote-wratter">
             <p className='changes-dote' >•••</p>
-            <p onClick={() => changes(item, data)} className='changes-mobile' >•••</p>
+            <p onClick={() => changes(item, todosData)} className='changes-mobile' >•••</p>
             <ChangesItem item={item} />
         </div>
 
