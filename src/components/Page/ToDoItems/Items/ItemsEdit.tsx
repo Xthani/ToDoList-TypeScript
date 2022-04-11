@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../../hooks";
 import { deledeToDo, ChangeToDo } from "../../../../Store/action";
@@ -6,8 +6,7 @@ import { TTodo } from "../../../../Store/types";
 import Changes from "../Changes/Changes";
 
 const ItemsEdit = ({ item }: { item: TTodo }) => {
-    const { todosData } = useAppSelector(state => state.todos);
-    const { editedToDo } = useAppSelector((state: any) => state.todos);
+    const { editedToDo, todosData } = useAppSelector((state: any) => state.todos);
     const dispatch = useDispatch();
     const [userEditText, setUserEditText] = useState(editedToDo.text)
     const [userEditHead, setUserEditHead] = useState(editedToDo.head)
@@ -27,10 +26,19 @@ const ItemsEdit = ({ item }: { item: TTodo }) => {
             setUserEditHead('')
         } else dispatch(deledeToDo(data, item))
     }
+
+    // focus на textarea
+    const ref = useRef<HTMLTextAreaElement>(null);
+    useEffect(() => {
+        ref.current?.focus()
+        return ref.current?.focus()
+    }, [item.edit]);
+
     return (
         <>
             {item.edit ?
                 <textarea
+                    ref={ref}
                     className="head-task-inpt"
                     value={userEditHead}
                     onChange={editChangeHead}

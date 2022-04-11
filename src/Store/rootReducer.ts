@@ -13,7 +13,6 @@ import {
 import storage from 'redux-persist/lib/storage'
 import { configureStore } from '@reduxjs/toolkit';
 
-
 export const rootReducer = combineReducers({
     todos: todosReducer
 })
@@ -34,8 +33,6 @@ export const store = configureStore({
         }),
 })
 export const persistor = persistStore(store);
-
-// export const store = createStore(rootReducer);
 
 // type
 export type AppDispatch = typeof store.dispatch;

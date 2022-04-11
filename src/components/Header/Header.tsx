@@ -4,7 +4,6 @@ import { addToDo } from "../../Store/action";
 const Header = () => {
     const dispatch = useDispatch();
     const handleAdd = () => {
-        console.log('handleAdd');
         if (true) {
             dispatch(addToDo({
                 id: Date.now(),

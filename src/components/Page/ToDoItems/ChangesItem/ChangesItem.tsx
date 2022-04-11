@@ -7,7 +7,6 @@ import { TTodo } from "../../../../Store/types";
 const ChangesItem = ({ item }: { item: TTodo }) => {
     const { todosData } = useAppSelector(state => state.todos);
     const dispatch = useDispatch();
-    const itemRef: any = useRef(null);
 
     // Редактирование taska
     const EditTask = (item: TTodo, data: TTodo[]) => {
@@ -19,27 +18,24 @@ const ChangesItem = ({ item }: { item: TTodo }) => {
     // Выполнение taska
     const CompletTask = (item: number, data: TTodo[]) => dispatch(complet(item, data))
 
-    useEffect(() => {
-        if (item.visible) {
-            console.log('addEventListener');
-            window.addEventListener('click', handleClick)
-        } else {
-            console.log('removeEventListener');
-            window.removeEventListener('click', handleClick)
-        }
-    }, [item.visible]);
-
     // Visible изменяется на true или false
     const handleClick = (event: any) => {
-        console.log("handleClick")
         if (
             itemRef.current &&
-            !itemRef.current.contains(event.target)
+            !itemRef.current?.contains(event.target)
         ) {
             dispatch(changesVisible(item.id, todosData))
             window.removeEventListener('click', handleClick)
         } else window.removeEventListener('click', handleClick)
     }
+
+    // Отслеживает клик вне компоненты
+    const itemRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        item.visible ?
+            window.addEventListener('click', handleClick) :
+            window.removeEventListener('click', handleClick)
+    }, [item.visible]);
 
     return (
         <div ref={itemRef}

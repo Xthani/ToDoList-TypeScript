@@ -8,7 +8,6 @@ const Changes = ({ item }: { item: TTodo }) => {
     const { todosData } = useAppSelector(state => state.todos);
     const dispatch = useDispatch();
     const changes = (item: TTodo, data: TTodo[]) => {
-        console.log('changes')
         dispatch(changesVisible(item.id, data));
         dispatch(saveId(item));
 
