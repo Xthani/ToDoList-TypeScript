@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../../../hooks";
 import { changesVisible, saveId } from "../../../../Store/action";
@@ -6,6 +7,7 @@ import ChangesItem from "../ChangesItem/ChangesItem";
 
 const Changes = ({ item }: { item: TTodo }) => {
     const { todosData } = useAppSelector(state => state.todos);
+    // console.log(todosData);
     const dispatch = useDispatch();
     const changes = (item: TTodo, data: TTodo[]) => {
         dispatch(changesVisible(item.id, data));
@@ -22,4 +24,4 @@ const Changes = ({ item }: { item: TTodo }) => {
     )
 }
 
-export default Changes;
+export default React.memo(Changes);

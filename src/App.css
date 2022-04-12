@@ -25,6 +25,15 @@ body {
   background-color: #1F1F1F;
 }
 
+/* Форма регистрации */
+.Registration-Form {
+  margin: 80px 20px 20px 300px;
+}
+
+.inp-form {
+  background-color: #242731;
+}
+
 .logo-wrapper {
   margin: 51px 0 0 42px;
   ;
@@ -39,14 +48,6 @@ body {
 .dot {
   color: #FF7C5D;
   font-size: 60px;
-}
-
-.pro-wrapper {
-  position: absolute;
-  top: 60px;
-  left: 126px;
-  font-size: 14px;
-  line-height: 19px;
 }
 
 .btn-all-tasks-wrapper {
@@ -89,17 +90,19 @@ ul {
 }
 
 .btn-new-task-wrapper,
-.btn-clear-task-wrapper {
+.btn-clear-task-wrapper,
+.btn-form-wrapper {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
-  margin: 90px 45px 0 44px;
+  margin: 20px 45px 0 44px;
   border-radius: 88px;
   text-align: center;
   cursor: pointer;
 }
 
-.btn-new-task-wrapper {
+.btn-new-task-wrapper,
+.btn-form-wrapper {
   background-color: #FF7C5D;
 }
 
@@ -288,13 +291,8 @@ ul {
   .btn-new-task-wrapper,
   .btn-clear-task-wrapper {
     margin: auto;
-    font-size: 24px;
+    font-size: 18px;
     line-height: normal;
-  }
-
-  .pro-wrapper {
-    top: 42px;
-    left: 180px;
   }
 
   .head-wrapper {
@@ -305,9 +303,6 @@ ul {
     margin: 0 auto;
   }
 
-  .pro-wrapper {
-    display: none;
-  }
 
   .items-wrapper {
     margin: 0 auto;
@@ -318,6 +313,10 @@ ul {
     background-color: #242731;
     border-radius: 24px;
     margin: 10px auto;
+  }
+
+  .Registration-Form {
+    margin: 200px auto;
   }
 
   .changes-item-wrapper-visible {

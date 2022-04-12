@@ -56,7 +56,7 @@ const ItemsEdit = ({ item }: { item: TTodo }) => {
             }
             <div className="changes-wrapper">
                 <p className='date-task'>
-                    {new Date().toLocaleDateString()} {new Date().toLocaleTimeString().slice(0, -3)}</p>
+                    {item.date}  {item.time}</p>
                 {
                     item.edit ?
                         <p

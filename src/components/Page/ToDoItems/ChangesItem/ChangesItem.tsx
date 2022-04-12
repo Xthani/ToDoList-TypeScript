@@ -5,10 +5,9 @@ import { changesVisible, complet, deledeToDo, editingToDo, saveEditToDo } from "
 import { TTodo } from "../../../../Store/types";
 
 const ChangesItem = ({ item }: { item: TTodo }) => {
-    const { todosData } = useAppSelector(state => state.todos);
+    const { todosData } = useAppSelector((state) => state.todos);
     const dispatch = useDispatch();
     const itemRef = useRef<HTMLDivElement>(null);
-
     // Редактирование taska
     const EditTask = (item: TTodo, data: TTodo[]) => {
         dispatch(saveEditToDo(item));
@@ -21,24 +20,23 @@ const ChangesItem = ({ item }: { item: TTodo }) => {
 
     // Visible изменяется на true или false
     const handleClick = (event: any) => {
-        console.log("handleClick")
+        // console.log("handleClick")
         if (
             itemRef.current &&
             !itemRef.current?.contains(event.target)
         ) {
             dispatch(changesVisible(item.id, todosData))
         }
-        window.removeEventListener('click', handleClick)
     }
-
     // Отслеживает клик вне компоненты
     useEffect(() => {
         if (item.visible) {
             window.addEventListener('click', handleClick)
-            console.log("addEventListener")
-        } else {
+            // console.log("addEventListener")
+        }
+        return () => {
+            // console.log("removeEventListener")
             window.removeEventListener('click', handleClick)
-            console.log("removeEventListener")
         }
     }, [item.visible]);
 
@@ -55,4 +53,4 @@ const ChangesItem = ({ item }: { item: TTodo }) => {
     )
 }
 
-export default ChangesItem;
+export default React.memo(ChangesItem);

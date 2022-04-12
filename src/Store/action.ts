@@ -1,4 +1,4 @@
-import { EActionType, TTodo } from './types';
+import { EActionType, TDataRegForm, TTodo } from './types';
 
 // добавляет объект newToDo в пустой массив
 export const addToDo = (newToDo: TTodo) => ({ type: EActionType.ADD_TODO, payload: newToDo });
@@ -69,10 +69,22 @@ export const changesVisible = (idTask: number, data: TTodo[]) => (
     {
         type: EActionType.VISIBLE_EDIT_FORM,
         payload: data.map((item: TTodo) =>
-            item.id == idTask ? { ...item, visible: !item.visible } : { ...item, visible: false })
+            item.id == idTask ? { ...item, visible: !item.visible } : { ...item })
     }
 )
+// // Отображение формы редактирования 
+// export const changesVisible_2 = (idTask: number, data: TTodo[]) => (
+//     {
+//         type: EActionType.VISIBLE_EDIT_FORM_2,
+//         payload: data.map((item: TTodo) =>
+//             item.id == idTask ? { ...item, visible: false } : { ...item })
+//     }
+// )
 // Сохранение редактируемого item-a
 export const saveId = (item: TTodo) => ({ type: EActionType.SAVE_TD, payload: item })
 // Удаление всех item-ов
 export const clear = () => ({ type: EActionType.CLEAR_TO_DO, payload: [] })
+// Добавление пользователя
+export const addingUser = (user: TDataRegForm | {}) => ({ type: EActionType.ADDING_USER, payload: user })
+// Удаление пользователя
+export const removeUser = () => ({ type: EActionType.REMOVE_USER, payload: [] })
