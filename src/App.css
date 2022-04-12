@@ -88,8 +88,8 @@ ul {
   color: #808191;
 }
 
-.btn-new-task-wrapper {
-  background-color: #FF7C5D;
+.btn-new-task-wrapper,
+.btn-clear-task-wrapper {
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
@@ -99,9 +99,17 @@ ul {
   cursor: pointer;
 }
 
-.btn-new-task {
-  padding: 13px;
+.btn-new-task-wrapper {
+  background-color: #FF7C5D;
 }
+
+.btn-clear-task-wrapper {
+  background-color: #6d1400;
+}
+
+/* .btn-new-task {
+  padding: 13px;
+} */
 
 /* page */
 .head-wrapper {
@@ -277,7 +285,8 @@ ul {
     margin: auto;
   }
 
-  .btn-new-task-wrapper {
+  .btn-new-task-wrapper,
+  .btn-clear-task-wrapper {
     margin: auto;
     font-size: 24px;
     line-height: normal;

@@ -8,7 +8,8 @@ export enum EActionType {
     COMPLET = 'COMPLET',
     CHANGE_TODO = 'CHANGE_TODO',
     VISIBLE_EDIT_FORM = 'VISIBLE_EDIT_FORM',
-    SAVE_TD = 'SAVE_TD'
+    SAVE_TD = 'SAVE_TD',
+    CLEAR_TO_DO = 'CLEAR_TO_DO'
 };
 
 export interface IInitState {
@@ -25,7 +26,7 @@ export type TTodo = {
     edit: true,
     editing: boolean,
     completed: boolean,
-    visible: boolean
+    visible: boolean,
 }
 
 export type TAction = {

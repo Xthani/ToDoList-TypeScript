@@ -72,4 +72,7 @@ export const changesVisible = (idTask: number, data: TTodo[]) => (
             item.id == idTask ? { ...item, visible: !item.visible } : { ...item, visible: false })
     }
 )
+// Сохранение редактируемого item-a
 export const saveId = (item: TTodo) => ({ type: EActionType.SAVE_TD, payload: item })
+// Удаление всех item-ов
+export const clear = () => ({ type: EActionType.CLEAR_TO_DO, payload: [] })

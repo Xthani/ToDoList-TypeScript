@@ -3,7 +3,7 @@ import { TTodo } from "../../../Store/types";
 import Items from "./Items/Items";
 
 const ToDoItems = () => {
-    const { todosData } = useAppSelector((state: any) => state.todos);
+    const { todosData } = useAppSelector((state: TTodo[] | any) => state.todos);
     return (
         <div className="items-wrapper items-bg">
             <>

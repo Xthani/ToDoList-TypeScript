@@ -1,8 +1,9 @@
 import { useDispatch } from "react-redux";
-import { addToDo } from "../../Store/action";
+import { addToDo, clear } from "../../Store/action";
 
 const Header = () => {
     const dispatch = useDispatch();
+    // Создание нового item-а
     const handleAdd = () => {
         if (true) {
             dispatch(addToDo({
@@ -13,10 +14,14 @@ const Header = () => {
                 edit: true, // отобразить input ввода а не текст (да) - false - true
                 editing: false, // отобразить форму для редактирования (нет) - true 
                 completed: false, // задание выполнено (нет)
-                visible: false // форма редактирования не активна
+                visible: false, // форма редактирования не активна
             }))
         }
     }
+    // Удаление всех item-ов
+    const clearToDo = () => window.confirm('Очистить весь список?') && dispatch(clear())
+
+
     return (
         <div className='sidebar'>
             <div className="logo-wrapper">
@@ -26,11 +31,12 @@ const Header = () => {
                     <a className='pro' href="#">PRO</a>
                 </div>
             </div>
-            <div
+            <button
                 className="btn-new-task-wrapper"
-                onClick={handleAdd}>
-                <p className="btn-new-task">+ Добавить</p>
-            </div>
+                onClick={handleAdd}>+ Добавить</button>
+            <button
+                className="btn-clear-task-wrapper"
+                onClick={clearToDo}>Очистить</button>
         </div>
     )
 }

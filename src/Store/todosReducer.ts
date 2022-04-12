@@ -16,6 +16,7 @@ export const todosReducer = (state: IInitState = INIT_STATE, action: TAction) =>
         case EActionType.COMPLET:
         case EActionType.CHANGE_TODO:
         case EActionType.VISIBLE_EDIT_FORM:
+        case EActionType.CLEAR_TO_DO:
             return { ...state, todosData: action.payload }
         case EActionType.SAVE_EDIT_TODO:
             return { ...state, editedToDo: action.payload }
