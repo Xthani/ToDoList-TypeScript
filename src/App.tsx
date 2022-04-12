@@ -11,7 +11,7 @@ function App() {
     <>
       <div className='wrapper'>
         <Header />
-        {!!user ? <Page /> : <RegistrationForm />}
+        {user.firstName !== undefined ? <Page /> : <RegistrationForm />}
       </div>
     </>
   );
