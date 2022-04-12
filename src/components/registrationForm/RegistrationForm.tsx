@@ -5,13 +5,12 @@ import * as yup from "yup";
 import { TDataRegForm } from "../../Store/types";
 import { useDispatch } from "react-redux";
 import { addingUser } from "../../Store/action";
-import { useAppSelector } from "../../hooks";
 
 const schema = yup.object().shape({
     firstName: yup.string().required("Пожалуйста укажите имя"),
     email: yup.string().email().required("Email обязателен"),
-    age: yup.number().positive().integer().max(99).required("Возраст обязателен"),
-    password: yup.string().min(4).max(15).required("Пароль обязателен"),
+    age: yup.number().positive().integer().max(99).required(),
+    password: yup.string().min(4).max(15).required(),
     confirmPassword: yup.string().oneOf([yup.ref('password'), null])
 })
 
