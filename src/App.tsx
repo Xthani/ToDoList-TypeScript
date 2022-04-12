@@ -6,11 +6,12 @@ import { useAppSelector } from './hooks';
 
 function App() {
   const { user } = useAppSelector((state: any) => state.todos);
+
   return (
     <>
       <div className='wrapper'>
         <Header />
-        {user.length !== 0 ? <Page /> : <RegistrationForm />}
+        {!!user ? <Page /> : <RegistrationForm />}
       </div>
     </>
   );

@@ -8,7 +8,7 @@ const Header = () => {
 
     // Создание нового item-а
     const handleAdd = () => {
-        if (user.length !== 0) {
+        if (!!user) {
             dispatch(addToDo({
                 id: Date.now(),
                 head: '',
@@ -29,10 +29,10 @@ const Header = () => {
     return (
         <div className='sidebar'>
             <div className="logo-wrapper">
-                <a className='logo' href="#">{user.length !== 0 ? user.firstName : 'ToDos'}</a>
+                <a className='logo' href="#">{!!user ? user.firstName : 'ToDos'}</a>
                 <a className='logo dot' href="#">.</a>
             </div>
-            {user.length !== 0 && <>
+            {!!user && <>
                 <button
                     className="btn-new-task-wrapper"
                     onClick={handleAdd}>+ Добавить</button>

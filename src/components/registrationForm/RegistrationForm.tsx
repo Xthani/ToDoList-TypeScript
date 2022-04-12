@@ -16,8 +16,6 @@ const schema = yup.object().shape({
 })
 
 const RegistrationForm = () => {
-    const { user } = useAppSelector((state: any) => state.todos);
-
     const dispatch = useDispatch();
     const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
