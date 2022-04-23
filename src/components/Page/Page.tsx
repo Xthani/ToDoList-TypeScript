@@ -1,18 +1,25 @@
+import { useState } from "react";
 import { useAppSelector } from "../../hooks";
-import ToDoItems from "./ToDoItems/ToDoItems";
+import AuthorizationForm from "../registrationForm/AuthorizationForm";
+import RegistrationForm from "../registrationForm/RegistrationForm";
+import TaskList from "./TaskList/TaskList";
 
 const Page = () => {
-    const { todosData } = useAppSelector((state: any) => state.todos);
+    const { userVerification } = useAppSelector((state: any) => state.todos);
+    const [reg, setReg] = useState(true)
 
     return (
-        <div className='page-body'>
-            <div className="head-wrapper">
-                <div className="head">
-                    <h1 className='head-text'>All Tasks: {todosData.length}</h1>
+        <>
+            {userVerification[0] ? <TaskList /> :
+                <div className="Registration-Form-wrapper">
+                    <button
+                        onClick={() => setReg(prev => !prev)}
+                        className="registration" >{!reg ? 'Есть аккаунт' : 'Регистрация'}</button>
+                    {!reg ? <RegistrationForm /> : <AuthorizationForm />}
                 </div>
-            </div>
-            <ToDoItems />
-        </div>
+            }
+
+        </>
     )
 }
 

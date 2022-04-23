@@ -8,22 +8,27 @@ export enum EActionType {
     COMPLET = 'COMPLET',
     CHANGE_TODO = 'CHANGE_TODO',
     VISIBLE_EDIT_FORM = 'VISIBLE_EDIT_FORM',
-    VISIBLE_EDIT_FORM_2 = 'VISIBLE_EDIT_FORM',
     SAVE_TD = 'SAVE_TD',
     CLEAR_TO_DO = 'CLEAR_TO_DO',
     ADDING_USER = 'ADDING_USER',
-    REMOVE_USER = 'REMOVE_USER'
+    REMOVE_USER = 'REMOVE_USER',
+    VERIFICATION = 'VERIFICATION',
+    LOG_OFF = 'LOG_OFF',
+    SAVE_USER = 'SAVE_USER'
 };
 
 export interface IInitState {
     todosData: TTodo[]
     editedToDo: {}
     itemId: TTodo | {}
-    user: TDataRegForm | {}
+    userVerification: [boolean] | []
+    userList: []
+    user: {}
 }
 
 export type TTodo = {
     id: number,
+    user: string,
     head: string,
     text: string,
     visibilityNewItem: boolean,
@@ -42,9 +47,14 @@ export type TAction = {
 
 export type TDataRegForm = {
     firstName: string,
-    lastName: string,
     email: string,
     age: number,
     password: string,
     confirmPassword: string
 };
+
+export type TVerification = {
+    email: string,
+    password: string
+}
+

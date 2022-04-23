@@ -1,4 +1,4 @@
-import { EActionType, TDataRegForm, TTodo } from './types';
+import { EActionType, TDataRegForm, TTodo, TVerification } from './types';
 
 // добавляет объект newToDo в пустой массив
 export const addToDo = (newToDo: TTodo) => ({ type: EActionType.ADD_TODO, payload: newToDo });
@@ -14,17 +14,16 @@ export const saveToDo = (text: string, head: string, data: TTodo[], toDoItem: TT
                 head: head
             } : item)
     }
-)
+);
 // фильтрует массив исключая из него удаяляемый объект по id
 export const deledeToDo = (data: TTodo[], toDoItem: TTodo) => (
     {
         type: EActionType.DELETE_TODO,
         payload: data.filter((item: TTodo) => item.id != toDoItem.id)
     }
-)
-
+);
 // сохраняет редактируемый объект editedToDo
-export const saveEditToDo = (editedToDo: TTodo) => ({ type: EActionType.SAVE_EDIT_TODO, payload: editedToDo })
+export const saveEditToDo = (editedToDo: TTodo) => ({ type: EActionType.SAVE_EDIT_TODO, payload: editedToDo });
 // Изменяет editing и edit
 export const editingToDo = (idTask: number, data: TTodo[]) => (
     {
@@ -37,8 +36,7 @@ export const editingToDo = (idTask: number, data: TTodo[]) => (
                 visible: false
             } : item)
     }
-)
-
+);
 // Сохраняет новые изменения в task 
 export const ChangeToDo = (text: string, head: string, data: TTodo[], toDoItem: TTodo) => (
     {
@@ -51,7 +49,7 @@ export const ChangeToDo = (text: string, head: string, data: TTodo[], toDoItem: 
                 text: text, head: head
             } : item)
     }
-)
+);
 // Изменяет поле completed (выполнено задание или нет)
 export const complet = (idTask: number, data: TTodo[]) => (
     {
@@ -63,7 +61,7 @@ export const complet = (idTask: number, data: TTodo[]) => (
                 visible: false
             } : item)
     }
-)
+);
 // Отображение формы редактирования 
 export const changesVisible = (idTask: number, data: TTodo[]) => (
     {
@@ -71,20 +69,32 @@ export const changesVisible = (idTask: number, data: TTodo[]) => (
         payload: data.map((item: TTodo) =>
             item.id == idTask ? { ...item, visible: !item.visible } : { ...item })
     }
-)
-// // Отображение формы редактирования 
-// export const changesVisible_2 = (idTask: number, data: TTodo[]) => (
-//     {
-//         type: EActionType.VISIBLE_EDIT_FORM_2,
-//         payload: data.map((item: TTodo) =>
-//             item.id == idTask ? { ...item, visible: false } : { ...item })
-//     }
-// )
+);
 // Сохранение редактируемого item-a
-export const saveId = (item: TTodo) => ({ type: EActionType.SAVE_TD, payload: item })
+export const saveId = (item: TTodo) => ({ type: EActionType.SAVE_TD, payload: item });
 // Удаление всех item-ов
-export const clear = () => ({ type: EActionType.CLEAR_TO_DO, payload: [] })
+export const clear = () => ({ type: EActionType.CLEAR_TO_DO, payload: [] });
+
+
 // Добавление пользователя
-export const addingUser = (user: TDataRegForm | {}) => ({ type: EActionType.ADDING_USER, payload: user })
-// Удаление пользователя
-export const removeUser = () => ({ type: EActionType.REMOVE_USER, payload: [] })
+export const addingUser = (newUser: TDataRegForm, userList: TDataRegForm[]) => ({
+    type: EActionType.ADDING_USER,
+    // payload: userList.map((user: TDataRegForm) => user.email !== newUser.email && newUser)
+    payload: newUser
+});
+
+
+// Удаление пользователей
+export const removeUser = () => ({ type: EActionType.REMOVE_USER, payload: [] });
+// Проверка пользователя
+export const verification = (authorizedUser: TVerification, userList: TDataRegForm[]) => ({
+    type: EActionType.VERIFICATION,
+    payload: userList.map((user: TDataRegForm) =>
+        user.email == authorizedUser.email && user.password == authorizedUser.password ? user : false)
+});
+
+export const saveUser = (user: TDataRegForm) => ({ type: EActionType.SAVE_USER, payload: user })
+
+
+// Разлогиниться
+export const logOut = () => ({ type: EActionType.LOG_OFF, payload: [false] });

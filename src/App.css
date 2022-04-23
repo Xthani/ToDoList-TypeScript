@@ -26,17 +26,27 @@ body {
 }
 
 /* Форма регистрации */
+
+.Registration-Form-wrapper {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+
 .Registration-Form {
-  margin: 80px 20px 20px 300px;
+  margin-top: 10px;
 }
 
 .inp-form {
   background-color: #242731;
 }
 
+.registration {
+  background-color: #242731;
+}
+
 .logo-wrapper {
   margin: 51px 0 0 42px;
-  ;
 }
 
 .logo {
@@ -313,10 +323,6 @@ ul {
     background-color: #242731;
     border-radius: 24px;
     margin: 10px auto;
-  }
-
-  .Registration-Form {
-    margin: 200px auto;
   }
 
   .changes-item-wrapper-visible {
